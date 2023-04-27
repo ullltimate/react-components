@@ -1,44 +1,37 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from 'react-bootstrap';
+//import './App.css'
+import Card from "./Card"
+import dataProducts from "./products"
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cards, setCards] = useState(dataProducts);
+
+  function renderCards(i:any){
+    return (
+      <Card title={dataProducts[i].title} img={dataProducts[i].thumbnail} desc={dataProducts[i].description} />
+    );
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <h1>
-          Hello World!
-        </h1>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div>
-        <Button variant="primary">Primary</Button>{' '}
-        <Button variant="secondary">Secondary</Button>{' '}
-        <Button variant="success">Success</Button>{' '}
-        <Button variant="warning">Warning</Button>{' '}
-        <Button variant="danger">Danger</Button>{' '}
-        <Button variant="info">Info</Button>{' '}
-        <Button variant="light">Light</Button>{' '}
-        <Button variant="dark">Dark</Button> <Button variant="link">Link</Button>
-      </div>
+      <header>
+        <nav className="navbar navbar-light bg-light justify-content-between">
+          <div className="container">
+            <a className="navbar-brand" href='/test'>Navbar</a>
+            <form className="form-inline">
+              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+      </header>
+      <section>
+        <div className="container">
+          <div className="row">
+            {cards.map((_, i) => renderCards(i))}
+          </div>
+        </div>
+      </section>
     </>
   )
 }
