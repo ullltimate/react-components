@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 function Card(props:any) {
   
     return (
@@ -8,7 +10,7 @@ function Card(props:any) {
             <div className="card-body">
               <h5 className="card-title">{props.title}</h5>
               <p className="card-text">{props.desc}</p>
-              <a href="#" className="btn btn-primary">Переход куда-нибудь</a>
+              <Link to={`/product/${props.id}`} className="btn btn-primary">Страница продукта</Link>
             </div>
           </div>
         </div>

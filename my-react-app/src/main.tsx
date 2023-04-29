@@ -9,6 +9,7 @@ import {
   RouterProvider,
 } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Product from './Product.tsx'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
   {
     path: "/test",
     element: <Test />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: `/product/:id`,
+    element: <Product />,
     errorElement: <ErrorPage />,
   },
 ]);
