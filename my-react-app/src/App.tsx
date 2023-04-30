@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom';
 //import './App.css'
 import Card from "./Card"
 import dataProducts from "./products"
 
 function App() {
-  const [cards, setCards] = useState(dataProducts);
+  const [cards] = useState(dataProducts);
 
   function renderCards(i:any){
     return (
@@ -16,19 +15,18 @@ function App() {
   return (
     <>
       <header>
-        <nav className="navbar navbar-light bg-light justify-content-between">
+        <nav className="navbar bg-body-tertiary">
           <div className="container">
-            <Link to='/test' className="navbar-brand">Navbar</Link>
-            <form className="form-inline">
-              <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <form className="d-flex" role="search">
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+              <button className="btn btn-outline-success" type="submit">Search</button>
             </form>
           </div>
         </nav>
       </header>
       <section>
         <div className="container">
-          <div className="row">
+          <div className="row row-cols-1 row-cols-md-2 g-4">
             {cards.map((_, i) => renderCards(i))}
           </div>
         </div>

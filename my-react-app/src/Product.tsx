@@ -6,6 +6,7 @@ function Product() {
     console.log(params);
     return (
       <>
+        <div className="container">
           <div className="card">
             <img className="card-img-top" src={dataProducts[Number(params.id)].thumbnail} alt="Card image cap" />
             <div className="card-body">
@@ -14,6 +15,7 @@ function Product() {
               <Link to='/' className="btn btn-primary">На главную</Link>
             </div>
           </div>
+        </div>
       </>
     )
   }
